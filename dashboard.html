@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ANUConnect Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+
+    </style>
+</head>
+
+<body class="bg-light mb-0">
+    <!-- Main Content -->
+    <div class="container-fluid dashboard-container">
+        <!-- Header Row: Mobile Menu Button -->
+        <div class="row m-3">
+            <div class="d-flex flex-row align-items-center gap-2">
+                <!-- Toggle Button for Small Screens -->
+                <button
+                    class="btn menu-btn d-md-none d-flex flex-column align-items-center justify-content-center px-3 py-2"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+                    ☰
+                </button>
+                <!-- User Icon (Mobile) -->
+                <!--Profile dropdown-->
+                <div class="d-block d-md-none dropdown  ms-auto  ">
+                    <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" role="button"
+                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span
+                            class="user-circle  bg-secondary text-white text-center  d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 40px; height: 40px;">
+                            s
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li class="dropdown-item"><a href="#" class="nav-link text-muted"><i
+                                    class="fas fa-cog me-2"></i>Settings</a>
+                        </li>
+                        <li class="dropdown-item"><a class="nav-link text-danger dropdown-item" href="#"
+                                data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Main Layout: Sidebar + Main Section -->
+        <div class="d-flex flex-column flex-md-row gap-3">
+            <!-- Sidebar -->
+            <div class="collapse d-md-block sidebar  rounded shadow-sm p-3" id="sidebarMenu" style="min-width: 220px;">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="fs-4 fw-bold text-light">Hire Purchase</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <ul class="nav nav-pills flex-column mb-4  ">
+                    <li class="nav-item mb-3">
+                        <a href="dashboard.html" class="nav-link note pt-2"><i class="fa-solid fa-chart-line me-2"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="group.html" class="nav-link text-light pt-2"><i
+                                class="fa-solid fa-people-group me-2"></i>Group</a>
+                    </li>
+                    <li class=" dropdown dropend nav-item mb-3 "><a href="#" class="nav-link text-light pt-2 dropdown-toggle d-flex align-items-center" role="button"
+                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-money-bill-trend-up me-2"></i>Stock</a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+                            <li class="dropdown-item">
+                                <a href="inventory.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-warehouse me-2"></i></i>Inventory</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="supplier.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-parachute-box me-2"></i>Supplier</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="members.html" class="nav-link text-light pt-2"><i
+                                class="fa-solid fa-database me-2"></i>Members</a>
+                    </li>
+                    <li class=" dropdown dropend nav-item mb-3 "><a href="#" class="nav-link text-light pt-2 dropdown-toggle d-flex align-items-center" role="button"
+                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-user-lock me-2"></i>Customer Access</a>
+                        <ul class="dropdown-menu dropdown-menu-dark z-1" aria-labelledby="dropdownMenuButton1">
+                            <li class="dropdown-item">
+                                <a href="users.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-users me-2"></i>Users</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="role.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-pen-to-square me-2"></i>Roles</a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </div>
+
+            <!-- Main Section -->
+            <div class="flex-grow-1 bg-light p-3 rounded shadow-sm">
+                <!-- Top Section -->
+                <div class="m-4">
+                    <div
+                        class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3">
+                        <div class="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-2">
+                            <div>
+                                <h2 class="fw-bold text-blue mb-0">Welcome back !</h2>
+                                <p class="text-muted mb-0">Here's your Administrator dashboard overview.</p>
+                            </div>
+                        </div>
+                        <div
+                            class="d-flex flex-column flex-sm-row flex-md-row align-items-start align-items-sm-center gap-2">
+                            <input type="text" class="form-control" placeholder="Search Groups, Members, or Stock"
+                                style="max-width: 700px;">
+
+                            <div class="d-none d-sm-block dropdown ms-2 ">
+                                <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" role="button"
+                                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span
+                                        class="user-circle  bg-secondary text-white text-center  d-flex align-items-center justify-content-center rounded-circle"
+                                        style="width: 40px; height: 40px;">
+                                        s
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                    <li class="dropdown-item"><a href="#" class="nav-link text-muted"><i
+                                                class="fas fa-cog me-2"></i>Settings</a>
+                                    </li>
+                                    <li class="dropdown-item"><a class="nav-link text-danger dropdown-item" href="#"
+                                            data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top cards -->
+                <div class="row mb-4 pt-2">
+                    <div class="col-md-4 mb-2">
+                        <div class="card stat-card">
+                            <div class="card-body">
+                                <h5 class="card-title text-blue">Registered Groups</h5>
+                                <h2>4</h2>
+                                <p class="text-muted">View Groups</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card stat-card">
+                            <div class="card-body ">
+                                <h5 class="card-title text-blue">Registered Members</h5>
+                                <h2>4</h2>
+                                <p class="text-muted">View Members</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-2">
+                        <div class="card stat-card">
+                            <div class="card-body">
+                                <h5 class="card-title text-blue">Available Inventory</h5>
+                                <h2>195</h2>
+                                <p class="text-muted">View Inventory </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-3 mb-3">
+                        <div class="card stat-card">
+                            <div class="card-body">
+                                <h5 class="card-title text-success">Announcements</h5>
+                                <h2>1 New</h2>
+                                <p class="text-muted">Check for updates</p>
+                            </div>
+                        </div>
+                </div>-->
+                </div>
+
+                <!-- main content -->
+                <div class="row">
+
+                    <!-- Member invoice and Inventory -->
+                    <div class="mt-0 row g-3">
+                        <!-- Member invoices -->
+                        <div class="col-md-7 col-md-custom-7 card  text-center">
+                            <h3 class="card-title text-blue p-3 me-auto">Member Invoices</h3>
+                            <div class="table-responsive-md scrollable-table  border">
+                                <table class="table table-hover align-middle">
+                                    <thead class="table-dark sticky-top">
+                                        <tr>
+                                            <th>Member_code</th>
+                                            <th>Group</th>
+                                            <th>Member</th>
+                                            <th>Email</th>
+                                            <th>Product</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                            <th>Purchase_Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>010580</td>
+                                            <td>Group A</td>
+                                            <td>John Doe</td>
+                                            <td>worker1@gmail.com</td>
+                                            <td>Product A</td>
+                                            <td>2</td>
+                                            <td>$200</td>
+                                            <td>2023-10-01</td>
+                                        </tr>
+                                        <tr>
+                                            <td>010581</td>
+                                            <td>Group B</td>
+                                            <td>Jane Smith</td>
+                                            <td>homeworker2@gmail.com</td>
+                                            <td>Product B</td>
+                                            <td>1</td>
+                                            <td>$150</td>
+                                            <td>2023-10-02</td>
+                                        </tr>
+                                        <tr>
+                                            <td>010584</td>
+                                            <td>Group A</td>
+                                            <td>Sarah Brown</td>
+                                            <td>house3@gmail.com</td>
+                                            <td>Product A</td>
+                                            <td>5</td>
+                                            <td>$500</td>
+                                            <td>2023-10-05</td>
+                                        </tr>
+                                        <tr>
+                                            <td>010585</td>
+                                            <td>Group B</td>
+                                            <td>David Wilson</td>
+                                            <td>village@gmail.com</td>
+                                            <td>Product B</td>
+                                            <td>2</td>
+                                            <td>$250</td>
+                                            <td>2023-10-06</td>
+                                        <tr>
+                                            <td>010582</td>
+                                            <td>Group C</td>
+                                            <td>Mike Johnson</td>
+                                            <td>worker2@gmail.com</td>
+                                            <td>Product C</td>
+                                            <td>3</td>
+                                            <td>$300</td>
+                                            <td>2023-10-03</td>
+                                        </tr>
+                                        <tr>
+                                            <td>010583</td>
+                                            <td>Group D</td>
+                                            <td>Emily Davis</td>
+                                            <td>home@gmail.com</td>
+                                            <td>Product D</td>
+                                            <td>4</td>
+                                            <td>$400</td>
+                                            <td>2023-10-04</td>
+                                        </tr>
+                                        <!-- More rows if needed -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Inventory -->
+                        <div class="col-md-5 col-md-custom-5 mb-3 ">
+                            <div class="card  text-center ">
+                                <h3 class="card-title text-blue p-3 me-auto">Inventory</h3>
+                                <div class="table-responsive-md scrollable-table  border">
+                                    <table class="table table-hover align-middle">
+                                        <thead class="table-dark sticky-top">
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Serial_N0</th>
+                                                <th>Quantity</th>
+                                                <th>Supplier</th>
+                                                <th>Purchase_Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Product A</td>
+                                                <td>SN001</td>
+                                                <td>50</td>
+                                                <td>Supplier X</td>
+                                                <td>2023-09-15</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Product B</td>
+                                                <td>SN002</td>
+                                                <td>30</td>
+                                                <td>Supplier Y</td>
+                                                <td>2023-09-20</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Product C</td>
+                                                <td>SN003</td>
+                                                <td>20</td>
+                                                <td>Supplier Z</td>
+                                                <td>2023-09-25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Product D</td>
+                                                <td>SN004</td>
+                                                <td>15</td>
+                                                <td>Supplier W</td>
+                                                <td>2023-09-30</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Product E</td>
+                                                <td>SN005</td>
+                                                <td>10</td>
+                                                <td>Supplier V</td>
+                                                <td>2023-10-05</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Product F</td>
+                                                <td>SN006</td>
+                                                <td>5</td>
+                                                <td>Supplier U</td>
+                                                <td>2023-10-10</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Product G</td>
+                                                <td>SN007</td>
+                                                <td>8</td>
+                                                <td>Supplier T</td>
+                                                <td>2023-10-15</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Product H</td>
+                                                <td>SN008</td>
+                                                <td>12</td>
+                                                <td>Supplier S</td>
+                                                <td>2023-10-20</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Product I</td>
+                                                <td>SN009</td>
+                                                <td>18</td>
+                                                <td>Supplier R</td>
+                                                <td>2023-10-25</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Product J</td>
+                                                <td>SN010</td>
+                                                <td>25</td>
+                                                <td>Supplier Q</td>
+                                                <td>2023-10-30</td>
+                                            </tr>
+                                            <!-- More rows if needed -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <a class="btn btn-danger btn-sm" href="login.jsp">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
