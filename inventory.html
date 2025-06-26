@@ -63,11 +63,11 @@
                                 class="fa-solid fa-chart-line me-2"></i>Dashboard</a>
                     </li>
                     <li class="nav-item mb-3">
-                        <a href="group.html" class="nav-link note pt-2"><i
+                        <a href="group.html" class="nav-link text-light  pt-2"><i
                                 class="fa-solid fa-people-group me-2"></i>Group</a>
                     </li>
                     <li class=" dropdown dropend nav-item mb-3 "><a href="#"
-                            class="nav-link text-light pt-2 dropdown-toggle d-flex align-items-center" role="button"
+                            class="nav-link note  pt-2 dropdown-toggle d-flex align-items-center" role="button"
                             id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-money-bill-trend-up me-2"></i>Stock</a>
                         <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
@@ -108,7 +108,7 @@
                     <div
                         class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3">
                         <!--Search box-->
-                        <input type="text" class="form-control" placeholder="Search Groups / Institution" style="max-width: 700px;">
+                        <input type="text" class="form-control" placeholder="Search Inventory" style="max-width: 700px;">
                         <!--Profile dropdown-->
                         <div class="d-none d-md-block dropdown ms-2 ">
                             <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" role="button"
@@ -133,37 +133,41 @@
                 </div>
 
 
-                <!-- group tble -->
+                <!-- inventory table -->
                 <div class="col-md-12 col-md-custom-12 card border-0 text-center">
                     <div class="d-flex align-items-center justify-content-between flex-nowrap gap-2 mb-2">
-                        <h3 class="fw-bold card-title text-blue p-3 me-auto mb-0">Registered Groups / Institution</h3>
+                        <h3 class="fw-bold card-title text-blue p-3 me-auto mb-0">Inventory</h3>
                         <div class="alert alert-secondary py-2 px-3 mb-0 d-flex align-items-center flex-shrink-1">
                             <div class="d-none d-sm-block">
-                                Add a <strong>new Group</strong> to the system.
+                                Add <strong>Product to the Inventory.</strong> 
                             </div>
                             <a class="btn btn-success btn-sm ms-sm-3 ms-0" data-bs-toggle="modal"
-                                data-bs-target="#addGroupModal">Add Group</a>
+                                data-bs-target="#addInventoryModal">Add to Inventory</a>
                         </div>
                     </div>
                     <div class="table-responsive border scrollable-table" style="overflow-x: auto;">
                         <table class="table table-hover align-middle">
                             <thead class="table-dark sticky-top">
                             <tr>
-                                <th>Name</th>
-                                <th>Short_Name</th>
-                                <th style="white-space: nowrap;">Description</th>
-                                <th style="white-space: nowrap;">Email</th>
-                                <th style="white-space: nowrap;">Address</th>
+                                <th style="white-space: nowrap;">Name</th>
+                                <th style="white-space: nowrap;">Serial_N0</th>
+                                <th style="white-space: nowrap;">Quantity</th>
+                                <th style="white-space: nowrap;">Unit Price</th>
+                                <th style="white-space: nowrap;">Purchase Date</th>
+                                <th style="white-space: nowrap;">Supplier</th>
+                                <th style="white-space: nowrap;">Warranty</th>
                                 <th style="white-space: nowrap;">Action</th>
                             </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>Group A</td>
-                                    <td>GA</td>
-                                    <td>Group A Description</td>
-                                    <td>groupA@gmail.com</td>
-                                    <td>123 Group A Street</td>
+                                    <td>Product A</td>
+                                    <td>PA12345</td>
+                                    <td>50</td>
+                                    <td>$100.00</td>
+                                    <td>2023-01-15</td>
+                                    <td>Supplier X</td>
+                                    <td>1 Year</td>
                                     <td>
                                         <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
                                             <button class="btn btn-primary btn-sm">Edit</button>
@@ -172,11 +176,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Group B</td>
-                                    <td>GB</td>
-                                    <td>Group B Description</td>
-                                    <td>groupB@gmail.com</td>
-                                    <td>456 Group B Avenue</td>
+                                    <td>Product B</td>
+                                    <td>PB67890</td>
+                                    <td>30</td>
+                                    <td>$200.00</td>
+                                    <td>2023-02-20</td>
+                                    <td>Supplier Y</td>
+                                    <td>6 Months</td>
                                     <td>
                                         <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
                                             <button class="btn btn-primary btn-sm">Edit</button>
@@ -185,11 +191,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Group C</td>
-                                    <td>GC</td>
-                                    <td>Group C Description</td>
-                                    <td>groupC@gmail.com</td>
-                                    <td>789 Group C Boulevard</td>
+                                    <td>Product C</td>
+                                    <td>PC54321</td>
+                                    <td>20</td>
+                                    <td>$150.00</td>
+                                    <td>2023-03-10</td>
+                                    <td>Supplier Z</td>
+                                    <td>2 Years</td>
                                     <td>
                                         <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
                                             <button class="btn btn-primary btn-sm">Edit</button>
@@ -198,11 +206,28 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Group D</td>
-                                    <td>GD</td>
-                                    <td>Group D Description</td>
-                                    <td>groupD@gmail.com</td>
-                                    <td>101 Group D Road</td>
+                                    <td>Product D</td>
+                                    <td>PD98765</td>
+                                    <td>10</td>
+                                    <td>$300.00</td>
+                                    <td>2023-04-05</td>
+                                    <td>Supplier W</td>
+                                    <td>3 Years</td>
+                                    <td>
+                                        <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
+                                            <button class="btn btn-primary btn-sm">Edit</button>
+                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Product E</td>
+                                    <td>PE24680</td>
+                                    <td>15</td>
+                                    <td>$250.00</td>
+                                    <td>2023-05-12</td>
+                                    <td>Supplier V</td>
+                                    <td>1 Year</td>
                                     <td>
                                         <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
                                             <button class="btn btn-primary btn-sm">Edit</button>
@@ -219,41 +244,54 @@
             </div>
         </div>
 
-        <!-- Add Group Modal -->
-        <div class="modal fade" id="addGroupModal" tabindex="-1" aria-labelledby="addGroupModalLabel" aria-hidden="true"
+        <!-- Add Inventory Modal -->
+        <div class="modal fade" id="addInventoryModal" tabindex="-1" aria-labelledby="addInventoryModal" aria-hidden="true"
             data-bs-backdrop="static" data-bs-keyboard="false">
             <div class="modal-dialog modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="addUserModalLabel">Add new Group / Institution</h5>
+                        <h5 class="modal-title" id="addUserModalLabel">Add new Product</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form id="registerForm">
+                            <!-- product Name and serial number -->
                             <div class="row mb-3">
                                 <div class="col">
-                                    <label class="form-label" for="group-name">Group Name</label>
-                                    <input type="text" class="form-control" id="group-name" title="Group name" placeholder="Enter group's full name" required>
+                                    <label class="form-label" for="first-name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter product name" title="Name" required>
                                 </div>
                                 <div class="col">
-                                    <label class="form-label" for="short-name">Short Name</label>
-                                    <input type="text" class="form-control" id="short-name" title="Short name" placeholder="Enter group's short name ( Known name )" required>
+                                    <label class="form-label" for="serial_n0">Serial_N0</label>
+                                    <input type="text" class="form-control" id="serial_n0" placeholder="Enter Serial_N0" title="Serial_N0 " required>
                                 </div>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="description">Description</label>
-                                <input type="text" class="form-control" id="description" placeholder="Enter group / institution description"
-                                    title="description" required>
+                            <!-- Purchase Date, Quantity and Unit Price -->
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label for="purchase-date" class="form-label">Purchase Date</label>
+                                    <input type="date" class="form-control" id="purchase-date" required>
+                                </div>
+                                <div class="col">
+                                    <label class="form-label" for="quantity">Quantity</label>
+                                    <input type="number" class="form-control" id="quantity" placeholder="Enter quantity" title="Quantity" required>
+                                </div>
+                                <div class="col">
+                                    <label class="form-label" for="unit-price">Unit Price</label>
+                                    <input type="number" class="form-control" id="unit-price" placeholder="Enter unit price" title="Unit Price" required>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="email">Email</label>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email"
-                                    title="Email" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="address">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="Enter group / institution address"
-                                    title="address" required>
+                            
+                            <!-- Supplier and Warranty -->
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label class="form-label" for="supplier">Supplier</label>
+                                    <input type="text" class="form-control" id="supplier" placeholder="Enter supplier name" title="Supplier" required>
+                                </div>
+                                <div class="col">
+                                    <label class="form-label" for="warranty">Warranty</label>
+                                    <input type="text" class="form-control" id="warranty" placeholder="Enter warranty period" title="Warranty" required>
+                                </div>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success w-50">Register</button>
@@ -282,13 +320,12 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Custom JavaScript -->
         <script>
-            const addGroupModalEl = document.getElementById('addGroupModal');
+            const addInventoryModalEl = document.getElementById('addInventoryModal');
             const registerForm = document.getElementById('registerForm');
             let shouldReload = true; // This controls whether the page should reload
             // Reset form and flag when modal opens
-            addGroupModalEl.addEventListener('show.bs.modal', function () {
+            addInventoryModalEl.addEventListener('show.bs.modal', function () {
                 console.log("Modal is about to open.");
                 shouldReload = true;
                 registerForm.reset();
@@ -299,25 +336,28 @@
             registerForm.addEventListener('submit', function (event) {
                 event.preventDefault();
                 shouldReload = false; // Prevent reload from 'hidden.bs.modal'
-                const groupData = {
-                    groupName: document.getElementById('group-name').value.trim(),
-                    shortName: document.getElementById('short-name').value.trim(),
-                    description: document.getElementById('description').value.trim(),
-                    email: document.getElementById('email').value.trim(),
-                    address: document.getElementById('address').value.trim()
+                const inventoryData = {
+                    name: document.getElementById('name').value.trim(),
+                    serial_n0: document.getElementById('serial_n0').value.trim(),
+                    purchaseDate: document.getElementById('purchase-date').value,
+                    quantity: document.getElementById('quantity').value.trim(),
+                    unitPrice: document.getElementById('unit-price').value.trim(),
+                    supplier: document.getElementById('supplier').value.trim(),
+                    warranty: document.getElementById('warranty').value.trim()
                 };
-                fetch('/api/groups', {
+                // Validate required fields
+                fetch('/api/inventory', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(groupData)
+                    body: JSON.stringify(inventoryData)
                 })
                     .then(response => {
-                        if (!response.ok) throw new Error('Failed to submit group data');
+                        if (!response.ok) throw new Error('Failed to submit inventory data');
                         return response.json();
                     })
                     .then(data => {
                         console.log('Success:', data);
-                        const modal = bootstrap.Modal.getInstance(addGroupModalEl);
+                        const modal = bootstrap.Modal.getInstance(addInventoryModalEl);
                         modal.hide();
                         setTimeout(() => location.reload(), 500); // Manual reload after successful submission
                     })
@@ -328,14 +368,15 @@
                     });
             });
             // This handles close button or backdrop closing
-            addGroupModalEl.addEventListener('hidden.bs.modal', function () {
+            addInventoryModalEl.addEventListener('hidden.bs.modal', function () {
                 console.log("Modal has closed.");
                 if (shouldReload) {
                     location.reload();
                 }
             });
         </script>
-        
+
+
 </body>
 
 </html>
