@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ANUConnect Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+
+    </style>
+</head>
+
+<body class="bg-light mb-0">
+    <!-- Main Content -->
+    <div class="container-fluid dashboard-container">
+        <!-- Header Row: Mobile Menu Button -->
+        <div class="row m-3">
+            <div class="d-flex flex-row align-items-center gap-2">
+                <!-- Toggle Button for Small Screens -->
+                <button
+                    class="btn menu-btn d-md-none d-flex flex-column align-items-center justify-content-center px-3 py-2"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+                    ☰
+                </button>
+                <!-- User Icon (Mobile) -->
+                <!--Profile dropdown-->
+                <div class="d-block d-md-none dropdown  ms-auto  ">
+                    <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" role="button"
+                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span
+                            class="user-circle  bg-secondary text-white text-center  d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 40px; height: 40px;">
+                            s
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li class="dropdown-item"><a href="#" class="nav-link text-muted"><i
+                                    class="fas fa-cog me-2"></i>Settings</a>
+                        </li>
+                        <li class="dropdown-item"><a class="nav-link text-danger dropdown-item" href="#"
+                                data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!-- Main Layout: Sidebar + Main Section -->
+        <div class="d-flex flex-column flex-md-row gap-3">
+            <!-- Sidebar -->
+            <div class="collapse d-md-block sidebar  rounded shadow-sm p-3" id="sidebarMenu" style="min-width: 220px;">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="fs-4 fw-bold text-light">Hire Purchase</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <ul class="nav nav-pills flex-column mb-4  ">
+                    <li class="nav-item mb-3">
+                        <a href="dashboard.html" class="nav-link text-light  pt-2"><i
+                                class="fa-solid fa-chart-line me-2"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="group.html" class="nav-link text-light  pt-2"><i
+                                class="fa-solid fa-people-group me-2"></i>Group</a>
+                    </li>
+                    <li class=" dropdown dropend nav-item mb-3 "><a href="#"
+                            class="nav-link note  pt-2 dropdown-toggle d-flex align-items-center" role="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-money-bill-trend-up me-2"></i>Stock</a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+                            <li class="dropdown-item">
+                                <a href="inventory.html" class=" nav-link text-light pt-2"><i
+                                        class="fa-solid fa-warehouse me-2"></i></i>Inventory</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="supplier.html" class=" nav-link text-light pt-2"><i
+                                        class="fa-solid fa-parachute-box me-2"></i>Supplier</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="members.html" class="nav-link text-light pt-2"><i
+                                class="fa-solid fa-database me-2"></i>Members</a>
+                    </li>
+                    <li class=" dropdown dropend nav-item mb-3 "><a href="#"
+                            class="nav-link text-light pt-2 dropdown-toggle d-flex align-items-center" role="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user-lock me-2"></i>Customer Access</a>
+                        <ul class="dropdown-menu dropdown-menu-dark z-1" aria-labelledby="dropdownMenuButton1">
+                            <li class="dropdown-item">
+                                <a href="users.html" class=" nav-link text-light pt-2"><i
+                                        class="fa-solid fa-users me-2"></i>Users</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="role.html" class=" nav-link text-light pt-2"><i
+                                        class="fa-solid fa-pen-to-square me-2"></i>Roles</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- Main Section -->
+            <div class="flex-grow-1 bg-light p-3 rounded shadow-sm">
+                <!-- Top Section -->
+                <div class="m-4">
+                    <div
+                        class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3">
+                        <!--Search box-->
+                        <input type="text" class="form-control" placeholder="Search Suppliers"
+                            style="max-width: 700px;">
+                        <!--Profile dropdown-->
+                        <div class="d-none d-md-block dropdown ms-2 ">
+                            <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" role="button"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span
+                                    class="user-circle  bg-secondary text-white text-center  d-flex align-items-center justify-content-center rounded-circle"
+                                    style="width: 40px; height: 40px;">
+                                    s
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li class="dropdown-item"><a href="#" class="nav-link text-muted"><i
+                                            class="fas fa-cog me-2"></i>Settings</a>
+                                </li>
+                                <li class="dropdown-item"><a class="nav-link text-danger dropdown-item" href="#"
+                                        data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- supplier table -->
+                <div class="col-md-12 col-md-custom-12 card border-0 text-center">
+                    <div class="d-flex align-items-center justify-content-between flex-nowrap gap-2 mb-2">
+                        <h3 class="fw-bold card-title text-blue p-3 me-auto mb-0">Registered Suppliers</h3>
+                        <div class="alert alert-secondary py-2 px-3 mb-0 d-flex align-items-center flex-shrink-1">
+                            <div class="d-none d-sm-block">
+                                Add a <strong>new supplier</strong> to the system.
+                            </div>
+                            <a class="btn btn-success btn-sm ms-sm-3 ms-0" data-bs-toggle="modal"
+                                data-bs-target="#addSupplierModal">Add Supplier</a>
+                        </div>
+                    </div>
+                    <div class="table-responsive border scrollable-table" style="overflow-x: auto;">
+                        <table class="table table-hover align-middle">
+                            <thead class="table-dark sticky-top">
+                                <tr>
+                                    <th style="white-space: nowrap;">Name</th>
+                                    <th style="white-space: nowrap;">Description</th>
+                                    <th style="white-space: nowrap;">Email</th>
+                                    <th style="white-space: nowrap;">Mobile Number</th>
+                                    <th style="white-space: nowrap;">Address</th>
+                                    <th style="white-space: nowrap;">Contact Personel</th>
+                                    <th style="white-space: nowrap;">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Supplier X</td>
+                                    <td>Electronics Supplier</td>
+                                    <td>email@gmail.com</td>
+                                    <td>1234567890</td>
+                                    <td>123 Main St, City</td>
+                                    <td>John Doe</td>
+                                    <td>
+                                        <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Supplier Y</td>
+                                    <td>Furniture Supplier</td>
+                                    <td>email@gmail.com</td>
+                                    <td>0987654321</td>
+                                    <td>456 Elm St, City</td>
+                                    <td>Jane Smith</td>
+                                    <td>
+                                        <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Supplier Z</td>
+                                    <td>Clothing Supplier</td>
+                                    <td>email@gmail.com</td>
+                                    <td>1122334455</td>
+                                    <td>789 Oak St, City</td>
+                                    <td>Emily Johnson</td>
+                                    <td>
+                                        <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Supplier A</td>
+                                    <td>Grocery Supplier</td>
+                                    <td>email@gmail.com</td>
+                                    <td>2233445566</td>
+                                    <td>321 Pine St, City</td>
+                                    <td>Michael Brown</td>
+                                    <td>
+                                        <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Supplier B</td>
+                                    <td>Hardware Supplier</td>
+                                    <td>email@gmail.com</td>
+                                    <td>3344556677</td>
+                                    <td>654 Maple St, City</td>
+                                    <td>Sarah Wilson</td>
+                                    <td>
+                                        <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <!-- More rows if needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Supplier Modal -->
+    <div class="modal fade" id="addSupplierModal" tabindex="-1" aria-labelledby="addSupplierModal" aria-hidden="true"
+        data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addUserModalLabel">Add new Supplier</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <!-- Supplier Name and Description -->
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label class="form-label" for="supplier_name">Supplier Name</label>
+                                <input type="text" class="form-control" id="supplier_name"
+                                    placeholder="Enter supplier name" title="Supplier Name" required>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="description">Description</label>
+                                <textarea class="form-control" id="description" placeholder="Enter description"
+                                    title="Description"></textarea>
+                            </div>
+                        </div>
+                        <!-- Email, phone number and Address -->
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="email" placeholder="Enter email"
+                                    title="Email" required>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="mobile_n0">Mobile Number</label>
+                                <input type="number" class="form-control" id="mobile_n0"
+                                    placeholder="Enter phone number" title="Mobile Number" required>
+                            </div>
+                            <div class="col">
+                                <label class="form-label" for="address">Address</label>
+                                <input type="text" class="form-control" id="address" placeholder="Enter address"
+                                    title="Address" required>
+                            </div>
+                        </div>
+                        <!-- Contact Personel -->
+                        <div class="row mb-3">
+                            <label class="form-label" for="contact_person">Contact Person</label>
+                            <input type="text" class="form-control" id="contact_person"
+                                placeholder="Enter contact person name" title="Contact Person" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success w-50" id="supplierSubmitBtn">
+                                <span id="supplierBtnText">Register</span>
+                                <span id="supplierBtnSpinner" class="spinner-border spinner-border-sm d-none" role="status"
+                                    aria-hidden="true"></span>
+                            </button>
+                            <div id="supplierSuccessMessage" class="text-success mt-2 d-none">Saved successfully!</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger btn-sm" href="login.jsp">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!--Modal display, fetching data and page reload-->
+    <script>
+        const addSupplierModalEl = document.getElementById('addSupplierModal');
+        const registerForm = document.getElementById('registerForm');
+        const supplierSubmitBtn = document.getElementById('supplierSubmitBtn');
+        const supplierBtnText = document.getElementById('supplierBtnText');
+        const supplierBtnSpinner = document.getElementById('supplierBtnSpinner');
+        const supplierSuccessMessage = document.getElementById('supplierSuccessMessage');
+
+        let shouldReload = true;
+
+        // When modal opens
+        addSupplierModalEl.addEventListener('show.bs.modal', function () {
+            console.log("Modal is about to open.");
+            shouldReload = true;
+            registerForm.reset();
+            supplierBtnText.textContent = "Register";
+            supplierBtnSpinner.classList.add('d-none');
+            supplierSubmitBtn.disabled = false;
+            supplierSuccessMessage.classList.add('d-none');
+
+            const permissionField = document.getElementById('permission');
+            if (permissionField) permissionField.value = '';
+        });
+
+        // Form submission
+        registerForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            shouldReload = false;
+
+            // Show spinner and disable button
+            supplierBtnSpinner.classList.remove('d-none');
+            supplierBtnText.textContent = "Saving...";
+            supplierSubmitBtn.disabled = true;
+            supplierSuccessMessage.classList.add('d-none');
+
+            const supplierData = {
+                supplierName: document.getElementById('supplier_name').value.trim(),
+                description: document.getElementById('description').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                mobileNumber: document.getElementById('mobile_n0').value.trim(),
+                address: document.getElementById('address').value.trim(),
+                contactPerson: document.getElementById('contact_person').value.trim()
+            };
+
+            fetch('/api/supplier', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(supplierData)
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error('Failed to submit supplier data');
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Success:', data);
+                    supplierBtnText.textContent = "Saved";
+                    supplierBtnSpinner.classList.add('d-none');
+                    supplierSuccessMessage.classList.remove('d-none');
+
+                    setTimeout(() => {
+                        const modal = bootstrap.Modal.getInstance(addSupplierModalEl);
+                        modal.hide();
+                        location.reload();
+                    }, 800);
+                })
+                .catch(error => {
+                    console.error('Submission error:', error);
+                    alert('Something went wrong while submitting. Please try again.');
+                    shouldReload = true;
+
+                    // Re-enable button
+                    supplierBtnText.textContent = "Register";
+                    supplierBtnSpinner.classList.add('d-none');
+                    supplierSubmitBtn.disabled = false;
+                });
+        });
+
+        // After modal is hidden
+        addSupplierModalEl.addEventListener('hidden.bs.modal', function () {
+            console.log("Modal has closed.");
+            if (shouldReload) {
+                location.reload();
+            }
+        });
+    </script>
+
+    
+</body>
+
+</html>

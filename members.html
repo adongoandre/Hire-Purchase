@@ -180,8 +180,9 @@
                                     <td>PO Box 123</td>
                                     <td>
                                         <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
-                                            <button class="btn btn-primary btn-sm">Edit</button>
-                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -200,8 +201,9 @@
                                     <td>PO Box 456</td>
                                     <td>
                                         <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
-                                            <button class="btn btn-primary btn-sm">Edit</button>
-                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -220,8 +222,9 @@
                                     <td>PO Box 789</td>
                                     <td>
                                         <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
-                                            <button class="btn btn-primary btn-sm">Edit</button>
-                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -240,8 +243,9 @@
                                     <td>PO Box 321</td>
                                     <td>
                                         <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
-                                            <button class="btn btn-primary btn-sm">Edit</button>
-                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -260,8 +264,9 @@
                                     <td>PO Box 654</td>
                                     <td>
                                         <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
-                                            <button class="btn btn-primary btn-sm">Edit</button>
-                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
                                         </div>
                                     </td>
                                 </tr>
@@ -368,7 +373,12 @@
                                 </div>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-success w-50">Register</button>
+                                <button type="submit" class="btn btn-success w-50" id="memberSubmitBtn">
+                                    <span id="memberBtnText">Register</span>
+                                    <span id="memberBtnSpinner" class="spinner-border spinner-border-sm d-none" role="status"
+                                        aria-hidden="true"></span>
+                                </button>
+                                <div id="memberSuccessMessage" class="text-success mt-2 d-none">Saved successfully!</div>
                             </div>
                         </form>
                     </div>
@@ -413,7 +423,12 @@
                                     title="address" required>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-success w-50">Register</button>
+                                <button type="submit" class="btn btn-success w-50" id="groupSubmitBtn">
+                                    <span id="groupBtnText">Register</span>
+                                    <span id="groupBtnSpinner" class="spinner-border spinner-border-sm d-none" role="status"
+                                        aria-hidden="true"></span>
+                                </button>
+                                <div id="groupSuccessMessage" class="text-success mt-2 d-none">Saved successfully!</div>
                             </div>
                         </form>
                     </div>
@@ -456,84 +471,110 @@
             const addGroupModalEl = document.getElementById('addGroupModal');
             const memberRegisterForm = document.getElementById('memberRegisterForm');
             const groupRegisterForm = document.getElementById('groupRegisterForm');
-            let shouldReload = true; // This controls whether the page should reload
+
+            const memberSubmitBtn = document.getElementById('memberSubmitBtn');
+            const memberBtnText = document.getElementById('memberBtnText');
+            const memberBtnSpinner = document.getElementById('memberBtnSpinner');
+            const memberSuccessMessage = document.getElementById('memberSuccessMessage');
+
+            const groupSubmitBtn = document.getElementById('groupSubmitBtn');
+            const groupBtnText = document.getElementById('groupBtnText');
+            const groupBtnSpinner = document.getElementById('groupBtnSpinner');
+            const groupSuccessMessage = document.getElementById('groupSuccessMessage');
+
+            let shouldReload = true;
             let reopenParentModal = false;
+
             const memberModal = new bootstrap.Modal(addMemberModalEl);
             const groupModal = new bootstrap.Modal(addGroupModalEl);
-            // Reset form and flag when modal opens
-            addMemberModalEl.addEventListener('show.bs.modal', function () {
-                console.log("Modal is about to open.");
+
+            // -- MEMBER MODAL --
+            addMemberModalEl.addEventListener('show.bs.modal', () => {
                 shouldReload = true;
                 memberRegisterForm.reset();
-                const permissionField = document.getElementById('permission');
-                if (permissionField) permissionField.value = '';
+                memberBtnText.textContent = 'Register';
+                memberBtnSpinner.classList.add('d-none');
+                memberSubmitBtn.disabled = false;
+                memberSuccessMessage.classList.add('d-none');
             });
-            // Handle form submission via API
+
             memberRegisterForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-                shouldReload = false; // Prevent reload from 'hidden.bs.modal'
+                shouldReload = false;
+                memberBtnText.textContent = 'Saving...';
+                memberBtnSpinner.classList.remove('d-none');
+                memberSubmitBtn.disabled = true;
+
                 const memberData = {
                     groupName: document.getElementById('group-name').value.trim(),
                     firstName: document.getElementById('first-name').value.trim(),
                     lastName: document.getElementById('last-name').value.trim(),
-                    dateOfBirth: document.getElementById('date-of-birth').value,
-                    nationalId: document.getElementById('national-id').value.trim(),
-                    idIssueDate: document.getElementById('id-issue-date').value,
-                    idExpiryDate: document.getElementById('id-expiry-date').value,
-                    residentialAddress: document.getElementById('residential-address').value.trim(),
-                    postalAddress: document.getElementById('postal-address').value.trim(),
-                    email: document.getElementById('email').value.trim(),
-                    mobileNumber: document.getElementById('mobile_n0').value.trim(),
+                    dateOfBirth: document.getElementById('date-of-birth')?.value,
+                    nationalId: document.getElementById('national-id')?.value.trim(),
+                    idIssueDate: document.getElementById('id-issue-date')?.value,
+                    idExpiryDate: document.getElementById('id-expiry-date')?.value,
+                    residentialAddress: document.getElementById('residential-address')?.value.trim(),
+                    postalAddress: document.getElementById('postal-address')?.value.trim(),
+                    email: document.getElementById('email')?.value.trim(),
+                    mobileNumber: document.getElementById('mobile_n0')?.value.trim(),
                 };
+
                 fetch('/api/members', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(memberData)
                 })
-                    .then(response => {
-                        if (!response.ok) throw new Error('Failed to submit member data');
-                        return response.json();
+                    .then(res => {
+                        if (!res.ok) throw new Error('Failed');
+                        return res.json();
                     })
-                    .then(data => {
-                        console.log('Success:', data);
-                        const modal = bootstrap.Modal.getInstance(addMemberModalEl);
-                        modal.hide();
-                        setTimeout(() => location.reload(), 500); // Manual reload after successful submission
+                    .then(() => {
+                        memberBtnSpinner.classList.add('d-none');
+                        memberBtnText.textContent = 'Saved';
+                        memberSuccessMessage.classList.remove('d-none');
+                        setTimeout(() => {
+                            bootstrap.Modal.getInstance(addMemberModalEl).hide();
+                            location.reload();
+                        }, 800);
                     })
-                    .catch(error => {
-                        console.error('Submission error:', error);
-                        alert('Something went wrong while submitting. Please try again.');
-                        shouldReload = true; // Allow reload if submission failed
+                    .catch(() => {
+                        alert("Something went wrong. Try again.");
+                        memberBtnSpinner.classList.add('d-none');
+                        memberBtnText.textContent = 'Register';
+                        memberSubmitBtn.disabled = false;
+                        shouldReload = true;
                     });
             });
-            // This handles close button or backdrop closing
-            addMemberModalEl.addEventListener('hidden.bs.modal', function () {
-                console.log("Modal has closed.");
-                if (shouldReload) {
-                    location.reload();
-                }
+
+            addMemberModalEl.addEventListener('hidden.bs.modal', () => {
+                if (shouldReload) location.reload();
             });
 
-            // When clicking button to open add group modal
+            // Open Group Modal (nested)
             document.querySelectorAll('[data-bs-target="#addGroupModal"]').forEach(btn => {
                 btn.addEventListener('click', () => {
-                    console.log("Opening nested modal. Preventing reload, will reopen parent modal after.");
                     shouldReload = false;
                     reopenParentModal = true;
                 });
             });
-            
-            addGroupModalEl.addEventListener('show.bs.modal', function () {
-                console.log("Modal is about to open.");
+
+            // -- GROUP MODAL --
+            addGroupModalEl.addEventListener('show.bs.modal', () => {
                 shouldReload = true;
                 groupRegisterForm.reset();
-                const permissionField = document.getElementById('permission');
-                if (permissionField) permissionField.value = '';
+                groupBtnText.textContent = 'Register';
+                groupBtnSpinner.classList.add('d-none');
+                groupSubmitBtn.disabled = false;
+                groupSuccessMessage.classList.add('d-none');
             });
-            // Handle form submission via API
+
             groupRegisterForm.addEventListener('submit', function (event) {
                 event.preventDefault();
-                shouldReload = false; // Prevent reload from 'hidden.bs.modal'
+                shouldReload = false;
+                groupBtnText.textContent = 'Saving...';
+                groupBtnSpinner.classList.remove('d-none');
+                groupSubmitBtn.disabled = true;
+
                 const groupData = {
                     groupName: document.getElementById('group-name').value.trim(),
                     shortName: document.getElementById('short-name').value.trim(),
@@ -541,37 +582,41 @@
                     email: document.getElementById('email').value.trim(),
                     address: document.getElementById('address').value.trim()
                 };
+
                 fetch('/api/groups', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(groupData)
                 })
-                    .then(response => {
-                        if (!response.ok) throw new Error('Failed to submit group data');
-                        return response.json();
+                    .then(res => {
+                        if (!res.ok) throw new Error('Failed');
+                        return res.json();
                     })
-                    .then(data => {
-                        console.log('Success:', data);
-                        const modal = bootstrap.Modal.getInstance(addGroupModalEl);
-                        modal.hide();
-                        setTimeout(() => location.reload(), 500); // Manual reload after successful submission
+                    .then(() => {
+                        groupBtnSpinner.classList.add('d-none');
+                        groupBtnText.textContent = 'Saved';
+                        groupSuccessMessage.classList.remove('d-none');
+                        setTimeout(() => {
+                            bootstrap.Modal.getInstance(addGroupModalEl).hide();
+                            location.reload();
+                        }, 800);
                     })
-                    .catch(error => {
-                        console.error('Submission error:', error);
-                        alert('Something went wrong while submitting. Please try again.');
-                        shouldReload = true; // Allow reload if submission failed
+                    .catch(() => {
+                        alert("Something went wrong. Try again.");
+                        groupBtnSpinner.classList.add('d-none');
+                        groupBtnText.textContent = 'Register';
+                        groupSubmitBtn.disabled = false;
+                        shouldReload = true;
                     });
             });
-            addGroupModalEl.addEventListener('hidden.bs.modal', function () {
-                console.log("Add Group Modal has closed.");
+
+            addGroupModalEl.addEventListener('hidden.bs.modal', () => {
                 if (reopenParentModal) {
-                    console.log("Reopening parent modal...");
                     reopenParentModal = false;
-                    memberModal.show(); // Reopen parent modal
+                    memberModal.show();
                 }
             });
         </script>
-
         <!-- Refresh Group Name Dropdown -->
         <script>
             document.getElementById('refresh').addEventListener('click', function () {

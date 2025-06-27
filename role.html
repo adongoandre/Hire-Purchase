@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ANUConnect Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+
+    </style>
+</head>
+
+<body class="bg-light mb-0">
+    <!-- Main Content -->
+    <div class="container-fluid dashboard-container">
+        <!-- Header Row: Mobile Menu Button -->
+        <div class="row m-3">
+            <!-- Toggle Button for Small Screens -->
+            <div class="d-flex flex-row align-items-center gap-2">
+                <button
+                    class="btn menu-btn d-md-none d-flex flex-column align-items-center justify-content-center px-3 py-2"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+                    ☰
+                </button>
+                <!-- User Icon (Mobile) -->
+                <!--Profile dropdown-->
+                <div class="d-block d-md-none dropdown  ms-auto  ">
+                    <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" role="button"
+                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span
+                            class="user-circle  bg-secondary text-white text-center  d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 40px; height: 40px;">
+                            s
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li class="dropdown-item"><a href="#" class="nav-link text-muted"><i
+                                    class="fas fa-cog me-2"></i>Settings</a>
+                        </li>
+                        <li class="dropdown-item"><a class="nav-link text-danger dropdown-item" href="#"
+                                data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!-- Main Layout: Sidebar + Main Section -->
+        <div class="d-flex flex-column flex-md-row gap-3">
+            <!-- Sidebar -->
+            <div class="collapse d-md-block sidebar  rounded shadow-sm p-3" id="sidebarMenu" style="min-width: 220px;">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="fs-4 fw-bold text-light">Hire Purchase</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <ul class="nav nav-pills flex-column mb-4  ">
+                    <li class="nav-item mb-3">
+                        <a href="dashboard.html" class="nav-link text-light  pt-2"><i
+                                class="fa-solid fa-chart-line me-2"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="group.html" class="nav-link text-light pt-2"><i
+                                class="fa-solid fa-people-group me-2"></i>Group</a>
+                    </li>
+                    <li class=" dropdown dropend nav-item mb-3 "><a href="#"
+                            class="nav-link text-light pt-2 dropdown-toggle d-flex align-items-center" role="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-money-bill-trend-up me-2"></i>Stock</a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+                            <li class="dropdown-item">
+                                <a href="inventory.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-warehouse me-2"></i></i>Inventory</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="supplier.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-parachute-box me-2"></i>Supplier</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="members.html" class="nav-link text-light  pt-2"><i
+                                class="fa-solid fa-database me-2"></i>Members</a>
+                    </li>
+                    <li class=" dropdown dropend nav-item mb-3 "><a href="#"
+                            class="nav-link note  pt-2 dropdown-toggle d-flex align-items-center" role="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user-lock me-2"></i>Customer Access</a>
+                        <ul class="dropdown-menu dropdown-menu-dark z-1" aria-labelledby="dropdownMenuButton1">
+                            <li class="dropdown-item">
+                                <a href="users.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-users me-2"></i>Users</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="role.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-pen-to-square me-2"></i>Roles</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- Main Section -->
+            <div class="flex-grow-1 bg-light p-3 rounded shadow-sm">
+                <!-- Top Section -->
+                <div class="m-4">
+                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3">
+                        <!--Search box-->
+                        <input type="text" class="form-control" placeholder="Search Users Roles here"
+                            style="max-width: 700px;">
+                        <!--Profile dropdown-->
+                        <div class="d-none d-md-block dropdown ms-2 ">
+                            <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" role="button"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span
+                                    class="user-circle  bg-secondary text-white text-center  d-flex align-items-center justify-content-center rounded-circle"
+                                    style="width: 40px; height: 40px;">
+                                    s
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li class="dropdown-item"><a href="#" class="nav-link text-muted"><i
+                                            class="fas fa-cog me-2"></i>Settings</a>
+                                </li>
+                                <li class="dropdown-item"><a class="nav-link text-danger dropdown-item" href="#"
+                                        data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- user roles -->
+                <div class="col-md-12 col-md-custom-12 card border-0 text-center">
+                    <div class="d-flex align-items-center justify-content-between flex-nowrap gap-2 mb-2">
+                        <h3 class="fw-bold card-title text-blue p-3 me-auto mb-0">User Roles</h3>
+                        <div class="alert alert-secondary py-2 px-3 mb-0 d-flex align-items-center flex-shrink-1">
+                            <div class="d-none d-sm-block">
+                                Add a <strong>new Role</strong> to the system.
+                            </div>
+                            <a class="btn btn-success btn-sm ms-sm-3 ms-0" data-bs-toggle="modal"
+                                data-bs-target="#addRoleModal">Add Roles</a>
+                        </div>
+                    </div>
+                    <div class="table-responsive-xxl scrollable-table  border" style="overflow-x: auto;">
+                        <table class="table table-sm table-hover align-middle">
+                            <thead class="table-dark sticky-top">
+                                <tr>
+                                    <th style="white-space: nowrap;">Role</th>
+                                    <th style="white-space: nowrap;">Description</th>
+                                    <th style="white-space: nowrap;">Permissions</th>
+                                    <th style="white-space: nowrap;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Admin</td>
+                                    <td>Administrator with full access</td>
+                                    <td>
+                                        <span class="badge bg-success">Create</span>
+                                        <span class="badge bg-success">Read</span>
+                                        <span class="badge bg-success">Update</span>
+                                        <span class="badge bg-success">Delete</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>User</td>
+                                    <td>Regular user with limited access</td>
+                                    <td>
+                                        <span class="badge bg-success">Read</span>
+                                        <span class="badge bg-secondary">Create</span>
+                                        <span class="badge bg-secondary">Update</span>
+                                        <span class="badge bg-secondary">Delete</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Guest</td>
+                                    <td>Guest user with view-only access</td>
+                                    <td>
+                                        <span class="badge bg-success">Read</span>
+                                        <span class="badge bg-secondary">Create</span>
+                                        <span class="badge bg-secondary">Update</span>
+                                        <span class="badge bg-secondary">Delete</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Manager</td>
+                                    <td>Manager with access to manage users</td>
+                                    <td>
+                                        <span class="badge bg-success">Create</span>
+                                        <span class="badge bg-success">Read</span>
+                                        <span class="badge bg-success">Update</span>
+                                        <span class="badge bg-secondary">Delete</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Support</td>
+                                    <td>Support staff with access to assist users</td>
+                                    <td>
+                                        <span class="badge bg-success">Create</span>
+                                        <span class="badge bg-success">Read</span>
+                                        <span class="badge bg-secondary">Update</span>
+                                        <span class="badge bg-secondary">Delete</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Developer</td>
+                                    <td>Developer with access to manage code and features</td>
+                                    <td>
+                                        <span class="badge bg-success">Create</span>
+                                        <span class="badge bg-success">Read</span>
+                                        <span class="badge bg-success">Update</span>
+                                        <span class="badge bg-secondary">Delete</span>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Add Role Modal -->
+        <div class="modal fade" id="addRoleModal" tabindex="-1" aria-labelledby="addRoleModalLabel" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false" >
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addRoleModalLabel">Add new Role</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="registerForm">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label class="form-label" for="role-name">Role</label>
+                                    <input type="text" class="form-control" id="role-name" title="Role" placeholder="Enter Role name" required>
+                                </div>
+                                <div class="col">
+                                    <label class="form-label" for="role-description">Description</label>
+                                    <textarea class="form-control" id="role-description" placeholder="Enter role description" title="role-description" required></textarea>
+                                </div>
+                            </div>
+                            <!-- Permissions Section -->
+                            <div class="mb-3">
+                                <label class="form-label" for="permission">Select Role Permissions</label>
+                                <!-- Group Permissions -->
+                                <div class="p-3 bg-light rounded border border-bottom-0 border-secondary">
+                                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                                        <label class="form-label" for="role-name" style="text-decoration: underline;">Group Permissions</label>
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="group-select">Select All</label>
+                                            <input class="form-check-input" type="checkbox" id="group-select" name="permissions" value="Group Permissions" data-select-all>
+                                        </div>
+                                    </div>
+                                    <!-- Flex row for horizontal checkboxes -->
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-group-create" name="permissions" value="Create Groups">
+                                            <label class="form-check-label" for="perm-group-create">Create Groups</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-group-view" name="permissions" value="View Groups">
+                                            <label class="form-check-label" for="perm-group-view">View Groups</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-group-edit" name="permissions" value="Edit Groups">
+                                            <label class="form-check-label" for="perm-group-edit">Edit Groups</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-group-delete" name="permissions" value="Delete Groups">
+                                            <label class="form-check-label" for="perm-group-delete">Delete Groups</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Inventory Permissions -->
+                                <div class="p-3 bg-light rounded border border-top-0 border-bottom-0 border-secondary">
+                                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                                        <label class="form-label" for="role-name" style="text-decoration: underline;">Inventory Permissions</label>
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="inventory-select">Select All</label>
+                                            <input class="form-check-input" type="checkbox" id="inventory-select" name="permissions" value="Inventory Permissions" data-select-all>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-inventory-add" name="permissions" value="Add Product">
+                                            <label class="form-check-label" for="perm-inventory-add">Add Product</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-inventory-view" name="permissions" value="View Inventory">
+                                            <label class="form-check-label" for="perm-inventory-view">View Inventory</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-inventory-edit" name="permissions" value="Edit Inventory">
+                                            <label class="form-check-label" for="perm-inventory-edit">Edit Inventory</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-inventory-delete" name="permissions" value="Delete Product">
+                                            <label class="form-check-label" for="perm-inventory-delete">Delete Product</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Supplier Permissions -->
+                                <div class="p-3 bg-light rounded border border-top-0 border-bottom-0 border-secondary">
+                                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                                        <label class="form-label" for="role-name" style="text-decoration: underline;">Supplier Permissions</label>
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="supplier-select">Select All</label>
+                                            <input class="form-check-input" type="checkbox" id="supplier-select" name="permissions" value="Supplier Permissions" data-select-all>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-supplier-add" name="permissions" value="Add Supplier">
+                                            <label class="form-check-label" for="perm-supplier-add">Add Supplier</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-supplier-view" name="permissions" value="View Suppliers">
+                                            <label class="form-check-label" for="perm-supplier-view">View Suppliers</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-supplier-edit" name="permissions" value="Edit Suppliers">
+                                            <label class="form-check-label" for="perm-supplier-edit">Edit Suppliers</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-supplier-delete" name="permissions" value="Delete Suppliers">
+                                            <label class="form-check-label" for="perm-supplier-delete">Delete Suppliers</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Member Permissions -->
+                                <div class="p-3 bg-light rounded border border-top-0 border-bottom-0 border-secondary">
+                                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                                        <label class="form-label" for="role-name" style="text-decoration: underline;">Member Permissions</label>
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="member-select">Select All</label>
+                                            <input class="form-check-input" type="checkbox" id="member-select" name="permissions" value="Member Permissions" data-select-all>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-member-add" name="permissions" value="Add Members">
+                                            <label class="form-check-label" for="perm-member-add">Add Members</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-member-view" name="permissions" value="View Members">
+                                            <label class="form-check-label" for="perm-member-view">View Members</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-member-edit" name="permissions" value="Edit Members">
+                                            <label class="form-check-label" for="perm-member-edit">Edit Members</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-member-delete" name="permissions" value="Delete Members">
+                                            <label class="form-check-label" for="perm-member-delete">Delete Members</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- User Permissions -->
+                                <div class="p-3 bg-light rounded border border-top-0 border-secondary">
+                                    <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+                                        <label class="form-label" for="role-name" style="text-decoration: underline;">User Permissions</label>
+                                        <div class="form-check">
+                                            <label class="form-check-label" for="user-select">Select All</label>
+                                            <input class="form-check-input" type="checkbox" id="user-select" name="permissions" value="User Permissions" data-select-all>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-user-add" name="permissions" value="Add Users">
+                                            <label class="form-check-label" for="perm-user-add">Add Users</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-user-view" name="permissions" value="View Users">
+                                            <label class="form-check-label" for="perm-user-view">View Users</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-user-edit" name="permissions" value="Edit Users">
+                                            <label class="form-check-label" for="perm-user-edit">Edit Users</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="perm-user-delete" name="permissions" value="Delete Users">
+                                            <label class="form-check-label" for="perm-user-delete">Delete Users</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="permission" title="permission" readonly required></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success w-50" id="roleSubmitBtn">
+                                    <span id="roleBtnText">Register</span>
+                                    <span id="roleBtnSpinner" class="spinner-border spinner-border-sm d-none" role="status"
+                                        aria-hidden="true"></span>
+                                </button>
+                                <div id="roleSuccessMessage" class="text-success mt-2 d-none">Saved successfully!</div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <a class="btn btn-danger btn-sm" href="login.jsp">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!--permissions checkbox js-->
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const permissionInput = document.getElementById('permission');
+
+                // Function to update permission input based on state
+                function updatePermissionInput() {
+                    const selected = [];
+
+                    // Check each select-all and its group
+                    document.querySelectorAll('[data-select-all]').forEach(selectAllCheckbox => {
+                        const group = selectAllCheckbox.closest('.p-3');
+                        const groupCheckboxes = group.querySelectorAll('input[name="permissions"]:not([data-select-all])');
+
+                        const allChecked = Array.from(groupCheckboxes).every(cb => cb.checked);
+
+                        if (selectAllCheckbox.checked && allChecked) {
+                            selected.push(selectAllCheckbox.value); // only the group label
+                        } else {
+                            groupCheckboxes.forEach(cb => {
+                                if (cb.checked) selected.push(cb.value);
+                            });
+                        }
+                    });
+
+                    permissionInput.value = selected.join(', ');
+                }
+
+                // Set up select-all behavior for each section
+                document.querySelectorAll('[data-select-all]').forEach(selectAllCheckbox => {
+                    const group = selectAllCheckbox.closest('.p-3');
+                    const groupCheckboxes = group.querySelectorAll('input[name="permissions"]:not([data-select-all])');
+
+                    // Select All toggle
+                    selectAllCheckbox.addEventListener('change', () => {
+                        const checked = selectAllCheckbox.checked;
+                        groupCheckboxes.forEach(cb => cb.checked = checked);
+                        updatePermissionInput();
+                    });
+
+                    // Individual checkbox change
+                    groupCheckboxes.forEach(cb => {
+                        cb.addEventListener('change', () => {
+                            const allChecked = Array.from(groupCheckboxes).every(c => c.checked);
+                            selectAllCheckbox.checked = allChecked;
+                            updatePermissionInput();
+                        });
+                    });
+                });
+            });
+        </script>
+        <!--Modal display, fetching data and page reload-->
+        <script>
+            const addRoleModalEl = document.getElementById('addRoleModal');
+            const registerForm = document.getElementById('registerForm');
+            const roleSubmitBtn = document.getElementById('roleSubmitBtn');
+            const roleBtnText = document.getElementById('roleBtnText');
+            const roleBtnSpinner = document.getElementById('roleBtnSpinner');
+            const roleSuccessMessage = document.getElementById('roleSuccessMessage');
+
+            let shouldReload = true;
+
+            // Reset form and indicators on modal open
+            addRoleModalEl.addEventListener('show.bs.modal', function () {
+                console.log("Modal is about to open.");
+                shouldReload = true;
+                registerForm.reset();
+                roleBtnText.textContent = "Register";
+                roleBtnSpinner.classList.add('d-none');
+                roleSubmitBtn.disabled = false;
+                roleSuccessMessage.classList.add('d-none');
+
+                const permissionField = document.getElementById('permission');
+                if (permissionField) permissionField.value = '';
+            });
+
+            // Handle role form submission
+            registerForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                shouldReload = false;
+
+                // Show loading spinner
+                roleBtnSpinner.classList.remove('d-none');
+                roleBtnText.textContent = "Saving...";
+                roleSubmitBtn.disabled = true;
+                roleSuccessMessage.classList.add('d-none');
+
+                const roleData = {
+                    roleName: document.getElementById('role-name').value.trim(),
+                    description: document.getElementById('role-description').value.trim(),
+                    permissions: document.getElementById('permission').value.trim()
+                };
+
+                fetch('/api/role', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(roleData)
+                })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Failed to submit role data');
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Success:', data);
+                        roleBtnText.textContent = "Saved";
+                        roleBtnSpinner.classList.add('d-none');
+                        roleSuccessMessage.classList.remove('d-none');
+
+                        setTimeout(() => {
+                            const modal = bootstrap.Modal.getInstance(addRoleModalEl);
+                            modal.hide();
+                            location.reload();
+                        }, 800);
+                    })
+                    .catch(error => {
+                        console.error('Submission error:', error);
+                        alert('Something went wrong while submitting. Please try again.');
+                        shouldReload = true;
+
+                        // Re-enable button and hide spinner
+                        roleBtnText.textContent = "Register";
+                        roleBtnSpinner.classList.add('d-none');
+                        roleSubmitBtn.disabled = false;
+                    });
+            });
+
+            // Handle modal close
+            addRoleModalEl.addEventListener('hidden.bs.modal', function () {
+                console.log("Modal has closed.");
+                if (shouldReload) {
+                    location.reload();
+                }
+            });
+        </script>
+
+</body>
+
+</html>
