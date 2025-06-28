@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ANUConnect Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+
+    </style>
+</head>
+
+<body class="bg-light mb-0">
+    <!-- Main Content -->
+    <div class="container-fluid dashboard-container">
+        <!-- Header Row: Mobile Menu Button -->
+        <div class="row m-3">
+            <!-- Toggle Button for Small Screens -->
+            <div class="d-flex flex-row align-items-center gap-2">
+                <button
+                    class="btn menu-btn d-md-none d-flex flex-column align-items-center justify-content-center px-3 py-2"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+                    ☰
+                </button>
+                <!-- User Icon (Mobile) -->
+                <!--Profile dropdown-->
+                <div class="d-block d-md-none dropdown  ms-auto  ">
+                    <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" role="button"
+                        id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span
+                            class="user-circle  bg-secondary text-white text-center  d-flex align-items-center justify-content-center rounded-circle"
+                            style="width: 40px; height: 40px;">
+                            s
+                        </span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li class="dropdown-item"><a href="#" class="nav-link text-muted"><i
+                                    class="fas fa-cog me-2"></i>Settings</a>
+                        </li>
+                        <li class="dropdown-item"><a class="nav-link text-danger dropdown-item" href="#"
+                                data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <!-- Main Layout: Sidebar + Main Section -->
+        <div class="d-flex flex-column flex-md-row gap-3">
+            <!-- Sidebar -->
+            <div class="collapse d-md-block sidebar  rounded shadow-sm p-3" id="sidebarMenu" style="min-width: 220px;">
+                <div class="d-flex align-items-center mb-3">
+                    <span class="fs-4 fw-bold text-light">Hire Purchase</span>
+                </div>
+
+                <!-- Navigation Links -->
+                <ul class="nav nav-pills flex-column mb-4  ">
+                    <li class="nav-item mb-3">
+                        <a href="dashboard.html" class="nav-link text-light  pt-2"><i
+                                class="fa-solid fa-chart-line me-2"></i>Dashboard</a>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="group.html" class="nav-link text-light pt-2"><i
+                                class="fa-solid fa-people-group me-2"></i>Group</a>
+                    </li>
+                    <li class=" dropdown dropend nav-item mb-3 "><a href="#"
+                            class="nav-link text-light pt-2 dropdown-toggle d-flex align-items-center" role="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-money-bill-trend-up me-2"></i>Stock</a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton1">
+                            <li class="dropdown-item">
+                                <a href="inventory.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-warehouse me-2"></i></i>Inventory</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="supplier.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-parachute-box me-2"></i>Supplier</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item mb-3">
+                        <a href="members.html" class="nav-link text-light  pt-2"><i
+                                class="fa-solid fa-database me-2"></i>Members</a>
+                    </li>
+                    <li class=" dropdown dropend nav-item mb-3 "><a href="#"
+                            class="nav-link note  pt-2 dropdown-toggle d-flex align-items-center" role="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user-lock me-2"></i>Customer Access</a>
+                        <ul class="dropdown-menu dropdown-menu-dark z-1" aria-labelledby="dropdownMenuButton1">
+                            <li class="dropdown-item">
+                                <a href="users.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-users me-2"></i>Users</a>
+                            </li>
+                            <li class="dropdown-item">
+                                <a href="role.html" class=" nav-link text-light pt-2"><i class="fa-solid fa-pen-to-square me-2"></i>Roles</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+
+            <!-- Main Section -->
+            <div class="flex-grow-1 bg-light p-3 rounded shadow-sm">
+                <!-- Top Section -->
+                <div class="m-4">
+                    <div
+                        class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3">
+                        <!--Search box-->
+                        <input type="text" class="form-control" placeholder="Search Users here"
+                            style="max-width: 700px;">
+                        <!--Profile dropdown-->
+                        <div class="d-none d-md-block dropdown ms-2 ">
+                            <a href="#" class="nav-link dropdown-toggle d-flex align-items-center" role="button"
+                                id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <span
+                                    class="user-circle  bg-secondary text-white text-center  d-flex align-items-center justify-content-center rounded-circle"
+                                    style="width: 40px; height: 40px;">
+                                    s
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                <li class="dropdown-item"><a href="#" class="nav-link text-muted"><i
+                                            class="fas fa-cog me-2"></i>Settings</a>
+                                </li>
+                                <li class="dropdown-item"><a class="nav-link text-danger dropdown-item" href="#"
+                                        data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- user table -->
+                <div class="col-md-12 col-md-custom-12 card border-0 text-center">
+                    <div class="d-flex align-items-center justify-content-between flex-nowrap gap-2 mb-2">
+                        <h3 class="fw-bold card-title text-blue p-3 me-auto mb-0">System Users</h3>
+                        <div class="alert alert-secondary py-2 px-3 mb-0 d-flex align-items-center flex-shrink-1">
+                            <div class="d-none d-sm-block">
+                                Add a <strong>new User</strong> to the system.
+                            </div>
+                            <a class="btn btn-success btn-sm ms-sm-3 ms-0" data-bs-toggle="modal"
+                                data-bs-target="#addUserModal">Add User</a>
+                        </div>
+                    </div>
+                    <div class="table-responsive-xxl scrollable-table  border" style="overflow-x: auto;">
+                        <table class="table table-sm table-hover align-middle">
+                            <thead class="table-dark sticky-top">
+                                <tr>
+                                    <th style="white-space: nowrap;">First Name</th>
+                                    <th style="white-space: nowrap;">Last Name</th>
+                                    <th style="white-space: nowrap;">Email</th>
+                                    <th style="white-space: nowrap;">Phone Number</th>
+                                    <th style="white-space: nowrap;">Role</th>
+                                    <th style="white-space: nowrap;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>email@gmail.com</td>
+                                    <td>+1234567890</td>    
+                                    <td>Admin</td>
+                                    <td>
+                                        <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Jane</td>
+                                    <td>Smith</td>
+                                    <td>email@gmail.com</td>
+                                    <td>+1234567890</td>
+                                    <td>User</td>
+                                    <td>
+                                        <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
+                                           <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Michael</td>
+                                    <td>Johnson</td>
+                                    <td>email@gmail.com</td>
+                                    <td>+1234567890</td>
+                                    <td>Manager</td>
+                                    <td>
+                                        <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Emily</td>
+                                    <td>Williams</td>
+                                    <td>email@gmail.com</td>
+                                    <td>+1234567890</td>
+                                    <td>Editor</td>
+                                    <td>
+                                        <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>David</td>
+                                    <td>Brown</td>
+                                    <td>email@gmail.com</td>
+                                    <td>+1234567890</td>
+                                    <td>Viewer</td>
+                                    <td>
+                                        <div class=" py-2 px-3 mb-0 d-flex align-items-center gap-1 flex-shrink-1">
+                                            <button class="btn btn-primary btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#addRoleModal"><i class="fa-solid fa-pen-to-square"></i></button>
+                                        <button class="btn btn-danger btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Add User Modal -->
+        <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true"
+            data-bs-backdrop="static" data-bs-keyboard="false">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addUserModalLabel">Add new User</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="registerForm">
+                            <!-- User Name -->
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label class="form-label" for="first-name">First Name</label>
+                                    <input type="text" class="form-control" id="first-name" placeholder="Enter first name" title="First name" required>
+                                </div>
+                                <div class="col">
+                                    <label class="form-label" for="last-name">Last Name</label>
+                                    <input type="text" class="form-control" id="last-name" placeholder="Enter last name" title="Last name" required>
+                                </div>
+                            </div>
+                            <!-- Email and Phone Number -->
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <label class="form-label" for="email">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter email" title="Email" required>
+                                </div>
+                                <div class="col">
+                                    <label class="form-label" for="mobile_n0">Mobile Number</label>
+                                    <input type="number" class="form-control" id="mobile_n0"placeholder="Enter mobile n0" title="Mobile n0" required>
+                                </div>
+                            </div>
+                            <!--Role-->
+                            <div class="mb-3">
+                                <label class="form-label" for="user-role">User Role</label>
+                                <select class="form-select form-select-sm" id="role-name" name="role-name" required>
+                                    <option value="" disabled>Select User Role</option>
+                                        <option value="None" selected>None</option>
+                                        <option value="Admin">Admin</option>
+                                        <option value="User">User</option>
+                                        <option value="Manager">Manager</option>
+                                        <option value="Editor">Editor</option>
+                                        <option value="Viewer">Viewer</option>
+                                </select>
+                            </div>
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-success w-50" id="userSubmitBtn">
+                                    <span id="userBtnText">Register</span>
+                                    <span id="userBtnSpinner" class="spinner-border spinner-border-sm d-none" role="status"
+                                        aria-hidden="true"></span>
+                                </button>
+                                <div id="userSuccessMessage" class="text-success mt-2 d-none">Saved successfully!</div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                        <a class="btn btn-danger btn-sm" href="login.jsp">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script>
+            // JavaScript to update input when a dropdown item is selected
+            document.querySelectorAll('.dropdown-item[data-value]').forEach(function (item) {
+                item.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent default link behavior
+                const selectedValue = this.getAttribute('data-value');
+                document.getElementById('role').value = selectedValue;
+                });
+            });
+        </script>
+        <!--Modal display, fetching data and page reload-->
+        <script>
+            const addUserModalEl = document.getElementById('addUserModal');
+            const registerForm = document.getElementById('registerForm');
+            const userSubmitBtn = document.getElementById('userSubmitBtn');
+            const userBtnText = document.getElementById('userBtnText');
+            const userBtnSpinner = document.getElementById('userBtnSpinner');
+            const userSuccessMessage = document.getElementById('userSuccessMessage');
+
+            let shouldReload = true;
+
+            // When modal opens
+            addUserModalEl.addEventListener('show.bs.modal', function () {
+                console.log("Modal is about to open.");
+                shouldReload = true;
+                registerForm.reset();
+                userBtnText.textContent = "Register";
+                userBtnSpinner.classList.add('d-none');
+                userSubmitBtn.disabled = false;
+                userSuccessMessage.classList.add('d-none');
+
+                const permissionField = document.getElementById('permission');
+                if (permissionField) permissionField.value = '';
+            });
+
+            // Handle form submission
+            registerForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                shouldReload = false;
+
+                // Show spinner and disable button
+                userBtnSpinner.classList.remove('d-none');
+                userBtnText.textContent = "Saving...";
+                userSubmitBtn.disabled = true;
+                userSuccessMessage.classList.add('d-none');
+
+                const userData = {
+                    firstName: document.getElementById('first-name').value.trim(),
+                    lastName: document.getElementById('last-name').value.trim(),
+                    email: document.getElementById('email').value.trim(),
+                    mobileNumber: document.getElementById('mobile_n0').value.trim(),
+                    roleName: document.getElementById('role-name').value.trim(),
+                };
+
+                fetch('/api/user', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userData)
+                })
+                    .then(response => {
+                        if (!response.ok) throw new Error('Failed to submit user data');
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Success:', data);
+                        userBtnText.textContent = "Saved";
+                        userBtnSpinner.classList.add('d-none');
+                        userSuccessMessage.classList.remove('d-none');
+
+                        setTimeout(() => {
+                            const modal = bootstrap.Modal.getInstance(addUserModalEl);
+                            modal.hide();
+                            location.reload();
+                        }, 800);
+                    })
+                    .catch(error => {
+                        console.error('Submission error:', error);
+                        alert('Something went wrong while submitting. Please try again.');
+                        shouldReload = true;
+
+                        // Re-enable button
+                        userBtnText.textContent = "Register";
+                        userBtnSpinner.classList.add('d-none');
+                        userSubmitBtn.disabled = false;
+                    });
+            });
+
+            // When modal is fully closed
+            addUserModalEl.addEventListener('hidden.bs.modal', function () {
+                console.log("Modal has closed.");
+                if (shouldReload) {
+                    location.reload();
+                }
+            });
+        </script>
+
+</body>
+
+</html>
